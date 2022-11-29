@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { yahoo_questions } from './questions.js'
 import QuizContainer from './QuizContainer.jsx'
 import Statistic from './Statistic.jsx'
+import { Link } from 'react-router-dom'
 
 function Quiz() {
 
@@ -22,7 +23,7 @@ function Quiz() {
         e.preventDefault()
         if (checked === questions[current].correct) { setScore(score + 1) }
         if (current < 9) { setCurrent(current + 1) } else { setDone(true) }
-        console.log(score)
+        setChecked('none')
     } 
 
   return (
@@ -31,6 +32,11 @@ function Quiz() {
         <div className='border-t-2 m-10 border-[#339989] flex items-center justify-center' />
         <div className=''> 
             {done ? <Statistic percentage={score * 10} text={`${score} / 10`}/> : <QuizContainer onClick={handleSubmit} current={current} questions={questions} checked={checked} onOptionChange={onOptionChange} /> }
+            {done && 
+                <div className='flex items-center justify-center mt-[10%]'>
+                    <Link to='/'><div className='menuButton'>Go Back</div></Link>
+                </div>
+            }
         </div>
     </div>
   )
