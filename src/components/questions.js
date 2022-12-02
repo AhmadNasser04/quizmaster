@@ -50,7 +50,7 @@ export const yahoo_questions = [
     {
         "question": 'What did one of the buyers Peace to check for',
         "options": ['Names of 10 government officials', 'Names of 10 government eomployees', 'Names of 11 government officials'],
-        "correct": 'Option 3',
+        "correct": 'Names of 10 government officials',
         "index": 8
     },
     {
